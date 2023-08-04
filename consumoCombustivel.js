@@ -1,13 +1,20 @@
-let precoCombustivelComum = 5.59;
-let precoCombustivelEtanol = 2.69;
-let carroEtanol = 2.69;
-/*let carroComum = 'CombustivelComum'*/
-let consumoMedio = 6;
-let distanciaViagem = 200;
+/*Criando a calsse carro */
+class carro{
+    marca;
+    cor;
+    gastoMedio;
 
-const valorViagemCombustivelComum = (distanciaViagem / consumoMedio) * precoCombustivelComum;
-const valorViagemCombustivelEtanol = (distanciaViagem / consumoMedio) * precoCombustivelEtanol;
+    constructor(marca, cor, gastoMedio){
+        this.marca = marca;
+        this.cor = cor;
+        this.gastoMedio = gastoMedio;
+    }
+/* Criando o método para calcular o gasto */
+    consumoVeiculo(quantidadeDekm, precoCombustive) {
+    return quantidadeDekm * this.gastoMedio * precoCombustive  
+}
+}
 
-if (carroEtanol == precoCombustivelEtanol) {
-    console.log('Consumo com Etanol' + valorViagemCombustivelEtanol);
-} 
+/* Criando a instância */
+const touro = new carro('Fiat', 'vinho', 1 / 13);
+console.log("Gasto: R$ "+ touro.consumoVeiculo(800, 5.76));
